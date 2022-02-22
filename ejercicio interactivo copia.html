@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Puzzle</title>
+	<style type="text/css">
+		article {
+			width: 610px;
+			height: 610px;
+			margin: 0 auto;
+		}
+		.imagen {
+			width: calc(600px/3);
+			height: calc(600px/3);
+			background-size: 600px;
+			display: inline-block;
+			vertical-align: top;
+			cursor: pointer;
+			animation-name: flash;
+		}
+		.animacion {
+			animation-name: flash;
+			animation-duration: 2s;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+			animation-timing-function: linear;
+		}
+		@keyframes flash {
+		  0%   {opacity: 1;}
+		  50%  {opacity: 0;}
+		  100% {opacity: 1;}
+		}
+		.imagen:nth-child(1) {
+			background-position: 0 0;
+		}
+		.imagen:nth-child(2) {
+			background-position: calc(600px/3*-1)0;
+		}
+		.imagen:nth-child(3) {
+			background-position: calc(600px/3*-2)0;
+		}
+		.imagen:nth-child(4) {
+			background-position: calc(600px/3*-3);
+		}
+		.imagen:nth-child(5) {
+			background-position: calc(600px/3*-4);
+		}
+		.imagen:nth-child(6) {
+			background-position: calc(600px/3*-5);
+		}
+		.imagen:nth-child(7) {
+			background-position: 0px 200px;
+		}
+		.imagen:nth-child(8) {
+			background-position: 400px 200px;
+		}
+		.imagen:nth-child(9) {
+			background-position: 200px 200px;
+		}
+		.fondo1 {
+			background-image: url("laptop-g49d22d60e_1920.jpg")
+		}
+		.fondo2 {
+			background-image: url("animal-g16170057d_1280.jpg")
+		}
+		.fondo3 {
+			background-image: url("avenue-g19091147d_1920.jpg")
+		}
+	</style>
+</head>
+<body>
+<!--
+Propuesta de ejercicio:
+
+Crea una página incluyendo jQuery que simule un juego de puzzles, donde hay diferentes imágenes troceadas en cuadros, y que al principio aparecen mezcladas.
+
+Al pulsar en cada imagen, debe pasar a la siguiente en función del estado actual que tenga. Por ejemplo suponiendo que hay 3 imágenes, si el cuadro está mostrando la imagen 2, al pulsar una vez pasaría a la 3, y si pulsas otra vez iría a la 1.
+
+En cada pulsación debe mostrar alguna animación para reforzar la sensación de interacción.
+
+Consejo: utiliza la propiedad background-image y background-position para mostrar los trozos correspondientes y poder cambiar fácilmente de una imagen a otra -->
+	
+<article>
+	<div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div><div class="imagen fondo3" onClick="cambiarImagen(this), animacion"></div><div class="imagen fondo2" onClick="cambiarImagen(this), animacion"></div><div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div><div class="imagen fondo3" onClick="cambiarImagen(this)"></div><div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div>
+</article>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	function cambiarImagen(cuadro){
+			//Si el cuadro pulsado tiene el fondo 1
+			if($(cuadro).hasClass('fondo1')){
+				//Se quita el fondo 1 y se pone el fondo 2
+				$(cuadro).removeClass('fondo1');
+				$(cuadro).addClass('fondo2');
+			}
+			//Si no tiene el fondo 1
+			else{
+				//Se mira si en su lugar tiene el fondo 2
+				if($(cuadro).hasClass('fondo2')){
+					//Se quita el fondo 2 y se pone el 3
+					$(cuadro).removeClass('fondo2');
+					$(cuadro).addClass('fondo3');
+				}
+				//Y si no tiene el 2, entonces es que tiene el 3
+				else{
+					//Se quita el 3, y se vuelve a poner el 1
+					$(cuadro).removeClass('fondo3');
+					$(cuadro).addClass('fondo1');
+				}
+			}
+
+		}
+					  
+	$('.imagen').click(function(){
+		$(this).addClass('animacion');
+		});
+	$('.fondo1').click(function(){
+		$(this).addClass('animacion');
+		});	
+	$('.fondo2').click(function(){
+		$(this).addClass('animacion');
+		});	
+	$('.fondo3').click(function(){
+		$(this).addClass('animacion');
+	});
+			//function animate(imagen){
+
+			//if($(imagen).hasClass('animacion'){}
+</script>
+	
+	
+</body>
+</html>
