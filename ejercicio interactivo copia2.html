@@ -82,7 +82,7 @@ En cada pulsación debe mostrar alguna animación para reforzar la sensación de
 Consejo: utiliza la propiedad background-image y background-position para mostrar los trozos correspondientes y poder cambiar fácilmente de una imagen a otra -->
 	
 <article>
-	<div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div><div class="imagen fondo3" onClick="cambiarImagen(this), animacion"></div><div class="imagen fondo2" onClick="cambiarImagen(this), animacion"></div><div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div><div class="imagen fondo3" onClick="cambiarImagen(this)"></div><div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div>
+	<div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div><div class="imagen fondo3" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div><div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div><div class="imagen fondo3" onClick="cambiarImagen(this)"></div><div class="imagen fondo1" onClick="cambiarImagen(this)"></div><div class="imagen fondo2" onClick="cambiarImagen(this)"></div>
 </article>
 
 
@@ -110,7 +110,6 @@ Consejo: utiliza la propiedad background-image y background-position para mostra
 					$(cuadro).addClass('fondo1');
 				}
 			}
-
 		}
 	
 	$('.imagen').click(function(){
@@ -124,12 +123,14 @@ Consejo: utiliza la propiedad background-image y background-position para mostra
 		});	
 	$('.fondo3').click(function(){
 		$(this).addClass('animacion');
-		});	
+		});
 
 
 			//function animate(imagen){
 
 			//if($(imagen).hasClass('animacion'){}
+			
+			//si ya tiene la clase animado y esta está puesta para que se repita una única vez, al finalizar la acción debemos quitar la clase animado. */
 </script>
 	<script>
 	</script>
